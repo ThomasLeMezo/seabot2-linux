@@ -1,0 +1,8 @@
+[Unit]
+Description= Configure Iridium device
+
+[Service]
+ExecStart=/bin/bash /usr/sbin/iridium.sh  #in this line specify the path to the script.
+
+[Install]
+WantedBy=multi-user.target
