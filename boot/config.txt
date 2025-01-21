@@ -11,18 +11,24 @@ arm_boost=1
 # Enable the audio output, I2C and SPI interfaces on the GPIO header. As these
 # parameters related to the base device-tree they must appear *before* any
 # other dtoverlay= specification
-dtparam=audio=on
+#dtparam=audio=on
 dtparam=i2c_arm=on
-dtparam=spi=on
 dtoverlay=disable-bt
+
+#dtoverlay=spi=on
+dtoverlay=spi0-2cs,cs0_pin=8,cs1_pin=27
 
 dtparam=i2c0=on
 dtparam=i2c1=on
+
+dtparam=i2s=on
 
 dtoverlay=pps-gpio,gpiopin=25
 dtoverlay=uart3
 dtoverlay=uart5
 # dtoverlay=uart0
+
+dtoverlay=max3107
 
 # Comment out the following line if the edges of the desktop appear outside
 # the edges of your display
@@ -50,6 +56,3 @@ dtoverlay=dwc2
 # Enable the USB2 outputs on the IO board (assuming your CM4 is plugged into
 # such a board)
 dtoverlay=dwc2,dr_mode=host
-
-[all]
-
