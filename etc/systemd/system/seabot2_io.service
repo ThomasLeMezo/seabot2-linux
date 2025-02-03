@@ -1,0 +1,8 @@
+[Unit]
+Description= Configure Seabot2 IO
+
+[Service]
+ExecStart=/bin/bash /usr/sbin/seabot2_io.sh  #in this line specify the path to the script.
+
+[Install]
+WantedBy=multi-user.target

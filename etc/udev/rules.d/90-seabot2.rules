@@ -1,3 +1,4 @@
 # /etc/udev/rules.d/90-seabot2.rules
 SUBSYSTEM=="tty", KERNEL=="ttyAMA1", SYMLINK+="ping1D", GROUP="dialout", MODE="0666"
 SUBSYSTEM=="tty", KERNEL=="ttyAMA2", SYMLINK+="iridium", GROUP="dialout", MODE="0666"
+#SUBSYSTEM=="tty", KERNEL=="serial0", SYMLINK+="gnss", GROUP="dialout", MODE="0666"

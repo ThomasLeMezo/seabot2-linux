@@ -1,0 +1,42 @@
+/dts-v1/;
+/plugin/;
+
+/{
+	compatible = "brcm,bcm2711";
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			clk1m8: clk1m8 {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <3686400>;
+			};
+		};
+	};
+
+	fragment@1 {
+        target = <&spidev1>;
+        __overlay__ {
+            status = "disabled";
+        };
+    };
+
+	fragment@2{
+		target = <&spi0>;
+		max3107_ovl: __overlay__ {
+			max310x_1: max0@1 {
+				compatible = "maxim,max3107";
+				reg = <1>;
+				spi-max-frequency = <5000000>;
+				clocks = <&clk1m8>;
+				clock-names = "osc";
+				interrupt-parent = <&gpio>;
+				interrupts = <7 0x08>; // OK with 0x08
+				gpio-controller;
+				#gpio-cells = <2>;
+			};
+		
+		};
+	};
+};
