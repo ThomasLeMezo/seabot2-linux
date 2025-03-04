@@ -11,6 +11,8 @@ sleep 0.1
 echo "out" > /sys/class/gpio/gpio22/direction
 echo "1" > /sys/class/gpio/gpio22/value
 
+gpioset --mode=signal gpiochip0 25=0
+
 #####################################################
 # ADC: TLV320ADC6120 (TI) - ADC adress: 0x4E
 i2cset -y 0 0x4E 0x02 0x81 # Wake up device and enable AREG
